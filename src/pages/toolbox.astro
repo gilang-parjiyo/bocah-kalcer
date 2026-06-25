@@ -1,151 +1,854 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Tips & Tool Box">
+    {/* HEADER PAGE */}
+    <header
+        class="bg-zinc-900 border-b border-zinc-800 py-12 md:py-16 bg-[url('/images/asphalt-texture.png')] bg-cover bg-blend-overlay"
+    >
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span
+                class="text-lime-400 text-xs font-bold tracking-widest uppercase block mb-2"
+                >Mechanic Corner</span
+            >
+            <h1
+                class="text-3xl md:text-5xl font-black uppercase italic tracking-tight"
+            >
+                Tips & Tool Box
+            </h1>
+            <p class="mt-3 text-sm md:text-base text-zinc-400 max-w-xl mx-auto">
+                Kalkulator teknis sederhana untuk membantu Anda mengatur rasio
+                gigi ideal sebelum menaklukkan tanjakan ekstrem atau memilih
+                ukuran sepeda yang pas.
+            </p>
+        </div>
+    </header>
 
-  {/* HEADER PAGE */}
-  <header class="bg-zinc-900 border-b border-zinc-800 py-12 md:py-16 bg-[url('/images/asphalt-texture.png')] bg-cover bg-blend-overlay">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <span class="text-lime-400 text-xs font-bold tracking-widest uppercase block mb-2">Mechanic Corner</span>
-      <h1 class="text-3xl md:text-5xl font-black uppercase italic tracking-tight">Tips & Tool Box</h1>
-      <p class="mt-3 text-sm md:text-base text-zinc-400 max-w-xl mx-auto">
-        Kalkulator teknis sederhana untuk membantu Anda mengatur rasio gigi ideal sebelum menaklukkan tanjakan ekstrem atau memilih ukuran sepeda yang pas.
-      </p>
-    </div>
-  </header>
+    <main class="max-w-4xl mx-auto px-4 py-12 space-y-12">
+        {/* FITUR 1: KALKULATOR RASIO GIGI */}
+        <section
+            class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl"
+        >
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-lime-400/10 text-lime-400 rounded-lg">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.827m11.379-8.16 1.15-.827M8.14 21.27l.707-1.03m6.95-10.16.707-1.03M12 3v1.5m0 15V21m4.743-10l-1.149-.827M6.405 17.785l-1.15-.827m11.379 8.16-1.15-.827M12 12l9 9m-9-9-9 9"
+                        ></path>
+                    </svg>
+                </div>
+                <div>
+                    <h2
+                        class="text-xl font-black uppercase italic tracking-wide text-zinc-100"
+                    >
+                        Kalkulator Rasio Gigi (Climbing Ratio)
+                    </h2>
+                    <p class="text-xs text-zinc-400">
+                        Hitung seberapa ringan gigi sepeda Anda untuk medan
+                        menanjak.
+                    </p>
+                </div>
+            </div>
 
-  <main class="max-w-4xl mx-auto px-4 py-12 space-y-12">
-    
-    {/* FITUR 1: KALKULATOR RASIO GIGI */}
-    <section class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="p-2 bg-lime-400/10 text-lime-400 rounded-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.827m11.379-8.16 1.15-.827M8.14 21.27l.707-1.03m6.95-10.16.707-1.03M12 3v1.5m0 15V21m4.743-10l-1.149-.827M6.405 17.785l-1.15-.827m11.379 8.16-1.15-.827M12 12l9 9m-9-9-9 9" />
-          </svg>
-        </div>
-        <div>
-          <h2 class="text-xl font-black uppercase italic tracking-wide text-zinc-100">Kalkulator Rasio Gigi (Climbing Ratio)</h2>
-          <p class="text-xs text-zinc-400">Hitung seberapa ringan gigi sepeda Anda untuk medan menanjak.</p>
-        </div>
-      </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Chainring Depan (Jumlah Gigi)</label
+                    >
+                    <input
+                        type="number"
+                        id="chainring"
+                        value="34"
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                    />
+                    <span class="text-[10px] text-zinc-500 mt-1 block"
+                        >*Ukuran standar compact road bike biasanya 34T atau
+                        50T.</span
+                    >
+                </div>
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Sprocket Belakang / Cassette (Gigi Terbesar)</label
+                    >
+                    <input
+                        type="number"
+                        id="sprocket"
+                        value="34"
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                    />
+                    <span class="text-[10px] text-zinc-500 mt-1 block"
+                        >*Makin besar ukuran sprocket belakang, tanjakan terasa
+                        makin ringan.</span
+                    >
+                </div>
+            </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Chainring Depan (Jumlah Gigi)</label>
-          <input type="number" id="chainring" value="34" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none" />
-          <span class="text-[10px] text-zinc-500 mt-1 block">*Ukuran standar compact road bike biasanya 34T atau 50T.</span>
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Sprocket Belakang / Cassette (Gigi Terbesar)</label>
-          <input type="number" id="sprocket" value="34" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none" />
-          <span class="text-[10px] text-zinc-500 mt-1 block">*Makin besar ukuran sprocket belakang, tanjakan terasa makin ringan.</span>
-        </div>
-      </div>
+            <div
+                class="mt-6 bg-zinc-950 border border-zinc-800/80 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4"
+            >
+                <div>
+                    <p
+                        class="text-xs text-zinc-500 uppercase font-semibold tracking-wider"
+                    >
+                        Hasil Gear Ratio Anda
+                    </p>
+                    <p
+                        class="text-3xl font-black text-lime-400 mt-1"
+                        id="ratio-output"
+                    >
+                        1.00
+                    </p>
+                </div>
+                <div
+                    class="text-xs text-zinc-400 sm:max-w-md text-left sm:text-right"
+                    id="ratio-status"
+                >
+                    Rasio 1.00 atau di bawahnya sangat ideal dan aman untuk
+                    melibas tanjakan terjal seperti Pacet tanpa menyiksa lutut.
+                </div>
+            </div>
+        </section>
 
-      <div class="mt-6 bg-zinc-950 border border-zinc-800/80 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>
-          <p class="text-xs text-zinc-500 uppercase font-semibold tracking-wider">Hasil Gear Ratio Anda</p>
-          <p class="text-3xl font-black text-lime-400 mt-1" id="ratio-output">1.00</p>
-        </div>
-        <div class="text-xs text-zinc-400 sm:max-w-md text-left sm:text-right" id="ratio-status">
-          Rasio 1.00 atau di bawahnya sangat ideal dan aman untuk melibas tanjakan terjal seperti Pacet tanpa menyiksa lutut.
-        </div>
-      </div>
-    </section>
+        {/* FITUR 2: BIKE SIZE FINDER */}
+        <section
+            class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl"
+        >
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-lime-400/10 text-lime-400 rounded-lg">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2Z"
+                        ></path>
+                    </svg>
+                </div>
+                <div>
+                    <h2
+                        class="text-xl font-black uppercase italic tracking-wide text-zinc-100"
+                    >
+                        Kalkulator Ukuran Bingkai (Bike Fitting Size)
+                    </h2>
+                    <p class="text-xs text-zinc-400">
+                        Temukan ukuran frame Road/Gravel Bike yang pas
+                        berdasarkan tinggi badan Anda.
+                    </p>
+                </div>
+            </div>
 
-    {/* FITUR 2: BIKE SIZE FINDER */}
-    <section class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="p-2 bg-lime-400/10 text-lime-400 rounded-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2Z" />
-          </svg>
-        </div>
-        <div>
-          <h2 class="text-xl font-black uppercase italic tracking-wide text-zinc-100">Kalkulator Ukuran Bingkai (Bike Fitting Size)</h2>
-          <p class="text-xs text-zinc-400">Temukan ukuran frame Road/Gravel Bike yang pas berdasarkan tinggi badan Anda.</p>
-        </div>
-      </div>
+            <div class="max-w-xs">
+                <label
+                    class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                    >Tinggi Badan Anda (cm)</label
+                >
+                <input
+                    type="number"
+                    id="height"
+                    value="170"
+                    class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                />
+            </div>
 
-      <div class="max-w-xs">
-        <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Tinggi Badan Anda (cm)</label>
-        <input type="number" id="height" value="170" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none" />
-      </div>
+            <div
+                class="mt-6 bg-zinc-950 border border-zinc-800/80 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+                <div>
+                    <p
+                        class="text-xs text-zinc-500 uppercase font-semibold tracking-wider"
+                    >
+                        Rekomendasi Ukuran Frame
+                    </p>
+                    <p
+                        class="text-3xl font-black text-lime-400 mt-1"
+                        id="size-output"
+                    >
+                        M (52-54)
+                    </p>
+                </div>
+                <div class="text-xs text-zinc-400 flex items-center">
+                    <p id="size-note">
+                        Ukuran ini memberikan kenyamanan optimal guna
+                        meminimalisir risiko cedera punggung dan lutut saat
+                        gowes jarak jauh.
+                    </p>
+                </div>
+            </div>
+        </section>
+        {/* FITUR 3: KALKULATOR TEKANAN BAN */}
+        <section
+            class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl"
+        >
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-lime-400/10 text-lime-400 rounded-lg">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21m-2.121-7.121l-1.061 1.061M6.636 17.364l-1.061 1.061m12.728 0l-1.061-1.061M6.636 6.636L5.575 5.575M12 12A3 3 0 1 0 12 6a3 3 0 0 0 0 6Z"
+                        ></path>
+                    </svg>
+                </div>
+                <div>
+                    <h2
+                        class="text-xl font-black uppercase italic tracking-wide text-zinc-100"
+                    >
+                        Kalkulator Tekanan Ban (Tire Pressure)
+                    </h2>
+                    <p class="text-xs text-zinc-400">
+                        Rekomendasi tekanan angin ideal agar gowes tetap grip,
+                        nyaman, dan minim risiko bocor.
+                    </p>
+                </div>
+            </div>
 
-      <div class="mt-6 bg-zinc-950 border border-zinc-800/80 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <p class="text-xs text-zinc-500 uppercase font-semibold tracking-wider">Rekomendasi Ukuran Frame</p>
-          <p class="text-3xl font-black text-lime-400 mt-1" id="size-output">M (52-54)</p>
-        </div>
-        <div class="text-xs text-zinc-400 flex items-center">
-          <p id="size-note">Ukuran ini memberikan kenyamanan optimal guna meminimalisir risiko cedera punggung dan lutut saat gowes jarak jauh.</p>
-        </div>
-      </div>
-    </section>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Berat Badan + Sepeda (Kg)</label
+                    >
+                    <input
+                        type="number"
+                        id="weight-bike"
+                        value="80"
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                    />
+                </div>
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Jenis Sepeda</label
+                    >
+                    <select
+                        id="bike-type"
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                    >
+                        <option value="road">Road Bike (Ban Sempit)</option>
+                        <option value="gravel">Gravel Bike (Ban Medium)</option>
+                        <option value="mtb">MTB (Ban Lebar)</option>
+                    </select>
+                </div>
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Sistem Ban</label
+                    >
+                    <select
+                        id="tyre-system"
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                    >
+                        <option value="tubetype">Ban Dalam (Clincher)</option>
+                        <option value="tubeless">Tubeless</option>
+                    </select>
+                </div>
+            </div>
 
-  </main>
+            <div
+                class="mt-6 bg-zinc-950 border border-zinc-800/80 rounded-xl p-4 grid grid-cols-2 gap-4 text-center sm:text-left"
+            >
+                <div>
+                    <p
+                        class="text-xs text-zinc-500 uppercase font-semibold tracking-wider"
+                    >
+                        Tekanan Depan
+                    </p>
+                    <p
+                        class="text-2xl sm:text-3xl font-black text-lime-400 mt-1"
+                        id="pressure-front"
+                    >
+                        75 PSI
+                    </p>
+                </div>
+                <div>
+                    <p
+                        class="text-xs text-zinc-500 uppercase font-semibold tracking-wider"
+                    >
+                        Tekanan Belakang
+                    </p>
+                    <p
+                        class="text-2xl sm:text-3xl font-black text-zinc-200 mt-1"
+                        id="pressure-rear"
+                    >
+                        78 PSI
+                    </p>
+                </div>
+            </div>
+        </section>
+        {/* FITUR 4: KALKULATOR PANJANG RANTAI */}
+        <section
+            class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl"
+        >
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-lime-400/10 text-lime-400 rounded-lg">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                        ></path>
+                    </svg>
+                </div>
+                <div>
+                    <h2
+                        class="text-xl font-black uppercase italic tracking-wide text-zinc-100"
+                    >
+                        Kalkulator Panjang Rantai (Chain Length)
+                    </h2>
+                    <p class="text-xs text-zinc-400">
+                        Hitung jumlah mata rantai (links) ideal saat mengganti
+                        rantai baru atau memodifikasi ukuran sprocket.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Panjang Chainstay (Inci)</label
+                    >
+                    <input
+                        type="number"
+                        id="chainstay"
+                        value="16.5"
+                        step="0.1"
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                    />
+                    <span class="text-[10px] text-zinc-500 mt-1 block"
+                        >*Jarak dari tengah poros BB ke tengah as roda belakang.</span
+                    >
+                </div>
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Gigi Chainring Depan Terbesar</label
+                    >
+                    <input
+                        type="number"
+                        id="chainring-max"
+                        value="50"
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                    />
+                    <span class="text-[10px] text-zinc-500 mt-1 block"
+                        >*Contoh: 50T untuk road atau 34T untuk 1x system.</span
+                    >
+                </div>
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Gigi Sprocket Belakang Terbesar</label
+                    >
+                    <input
+                        type="number"
+                        id="sprocket-max"
+                        value="34"
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                    />
+                    <span class="text-[10px] text-zinc-500 mt-1 block"
+                        >*Ukuran mata gigi pada piringan cassette terbesar Anda.</span
+                    >
+                </div>
+            </div>
+
+            <div
+                class="mt-6 bg-zinc-950 border border-zinc-800/80 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4"
+            >
+                <div>
+                    <p
+                        class="text-xs text-zinc-500 uppercase font-semibold tracking-wider"
+                    >
+                        Rekomendasi Panjang Rantai
+                    </p>
+                    <p
+                        class="text-3xl font-black text-lime-400 mt-1"
+                        id="chain-output"
+                    >
+                        106 Links
+                    </p>
+                </div>
+                <div
+                    class="text-xs text-zinc-400 sm:max-w-md text-left sm:text-right"
+                >
+                    Hasil di atas sudah dibulatkan ke angka genap terdekat
+                    karena rantai sepeda membutuhkan pasangan inner dan outer
+                    link* agar bisa tersambung menggunakan missing link.
+                </div>
+            </div>
+        </section>
+        {/* FITUR 5: KALKULATOR TINGGI SADEL */}
+        <section
+            class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl"
+        >
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-lime-400/10 text-lime-400 rounded-lg">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0V18m0 3v-3m0 0h7.5m0 0V18m0 3v-3"
+                        ></path>
+                    </svg>
+                </div>
+                <div>
+                    <h2
+                        class="text-xl font-black uppercase italic tracking-wide text-zinc-100"
+                    >
+                        Kalkulator Tinggi Sadel (Saddle Height)
+                    </h2>
+                    <p class="text-xs text-zinc-400">
+                        Gunakan Metode Greg LeMond untuk mencari tinggi sadel
+                        paling efisien dan ramah lutut.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Panjang Inseam Anda (cm)</label
+                    >
+                    <div class="relative">
+                        <input
+                            type="number"
+                            id="inseam"
+                            value="78"
+                            class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                        />
+                        <span
+                            class="absolute right-4 top-3.5 text-xs font-bold text-zinc-600"
+                            >CM</span
+                        >
+                    </div>
+                    <span class="text-[10px] text-zinc-500 mt-1 block"
+                        >*Ukur dari lantai ke area pangkal paha terdalam
+                        (gunakan bantuan buku tebal yang dijepit di selangkangan
+                        sambil berdiri tegak).</span
+                    >
+                </div>
+
+                <div
+                    class="bg-zinc-950 border border-zinc-800/80 rounded-xl p-4 flex flex-col justify-center"
+                >
+                    <p
+                        class="text-xs text-zinc-500 uppercase font-semibold tracking-wider"
+                    >
+                        Tinggi Sadel Ideal (BB ke Sadel)
+                    </p>
+                    <p
+                        class="text-3xl font-black text-lime-400 mt-1"
+                        id="saddle-output"
+                    >
+                        68.9 cm
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="mt-6 border-t border-zinc-800/60 pt-4 text-xs text-zinc-400 space-y-2"
+            >
+                <p class="font-bold text-zinc-300">
+                    📐 Cara Mengukurnya di Sepeda:
+                </p>
+                <p>
+                    Tarik meteran dimulai dari titik tengah baut poros
+                    crank/Bottom Bracket (BB), lalu tarik lurus ke atas
+                    mengikuti sudut tiang sadel hingga ke permukaan paling
+                    atas tengah sadel Anda.
+                </p>
+            </div>
+        </section>
+        {/* FITUR 6: KALKULATOR HIDRASI & NUTRISI */}
+        <section
+            class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl"
+        >
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-lime-400/10 text-lime-400 rounded-lg">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9s2.015-9 4.5-9m0 0a3.001 3.001 0 0 0-2.83 2M12 3a3.001 3.001 0 0 1 2.83 2"
+                        ></path>
+                    </svg>
+                </div>
+                <div>
+                    <h2
+                        class="text-xl font-black uppercase italic tracking-wide text-zinc-100"
+                    >
+                        Kalkulator Hidrasi & Nutrisi (Hydration & Fuel)
+                    </h2>
+                    <p class="text-xs text-zinc-400">
+                        Estimasi kebutuhan air minum dan asupan karbohidrat agar
+                        performa gowes tetap stabil.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Durasi Gowes (Jam)</label
+                    >
+                    <input
+                        type="number"
+                        id="duration"
+                        value="2"
+                        min="1"
+                        step="0.5"
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                    />
+                </div>
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2"
+                        >Kondisi Cuaca / Intensitas</label
+                    >
+                    <select
+                        id="weather"
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 font-bold focus:border-lime-400 focus:outline-none"
+                    >
+                        <option value="cool">Pagi Adem / Santai (Flat)</option>
+                        <option value="hot"
+                            >Siang Terik / Menanjak (Intens)</option
+                        >
+                    </select>
+                </div>
+            </div>
+
+            <div
+                class="mt-6 bg-zinc-950 border border-zinc-800/80 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-2 gap-6"
+            >
+                <div
+                    class="border-b sm:border-b-0 sm:border-r border-zinc-800/80 pb-4 sm:pb-0 sm:pr-4"
+                >
+                    <p
+                        class="text-xs text-zinc-500 uppercase font-semibold tracking-wider"
+                    >
+                        Total Kebutuhan Cairan
+                    </p>
+                    <p
+                        class="text-2xl sm:text-3xl font-black text-lime-400 mt-1"
+                        id="water-output"
+                    >
+                        1,200 ml
+                    </p>
+                    <span
+                        class="text-[10px] text-zinc-500 mt-1 block"
+                        id="bidon-note"
+                        >Disarankan membawa ~2 botol (bidon) ukuran 600ml.</span
+                    >
+                </div>
+                <div>
+                    <p
+                        class="text-xs text-zinc-500 uppercase font-semibold tracking-wider"
+                    >
+                        Kebutuhan Karbohidrat (Energi)
+                    </p>
+                    <p
+                        class="text-2xl sm:text-3xl font-black text-zinc-200 mt-1"
+                        id="carb-output"
+                    >
+                        60 gram
+                    </p>
+                    <span
+                        class="text-[10px] text-zinc-500 mt-1 block"
+                        id="fuel-note"
+                        >Setara dengan ~2 buah pisang atau energy gel selama
+                        gowes.</span
+                    >
+                </div>
+            </div>
+        </section>
+    </main>
 </MainLayout>
 
 {/* LOGIKA INTERAKTIF JAVASCRIPT */}
 <script>
-  // Logika 1: Kalkulator Rasio Gigi
-  const chainringInput = document.getElementById('chainring') as HTMLInputElement;
-  const sprocketInput = document.getElementById('sprocket') as HTMLInputElement;
-  const ratioOutput = document.getElementById('ratio-output');
-  const ratioStatus = document.getElementById('ratio-status');
+    // Logika 1: Kalkulator Rasio Gigi
+    const chainringInput = document.getElementById(
+        "chainring",
+    ) as HTMLInputElement;
+    const sprocketInput = document.getElementById(
+        "sprocket",
+    ) as HTMLInputElement;
+    const ratioOutput = document.getElementById("ratio-output");
+    const ratioStatus = document.getElementById("ratio-status");
 
-  function calculateRatio() {
-    if (chainringInput && sprocketInput && ratioOutput && ratioStatus) {
-      const chainring = parseFloat(chainringInput.value);
-      const sprocket = parseFloat(sprocketInput.value);
-      
-      if (chainring > 0 && sprocket > 0) {
-        const ratio = chainring / sprocket;
-        ratioOutput.innerText = ratio.toFixed(2);
+    function calculateRatio() {
+        if (chainringInput && sprocketInput && ratioOutput && ratioStatus) {
+            const chainring = parseFloat(chainringInput.value);
+            const sprocket = parseFloat(sprocketInput.value);
 
-        if (ratio <= 1.0) {
-          ratioStatus.innerText = "Rasio super ringan! Sangat ideal dan aman untuk melibas tanjakan terjal pegunungan tanpa menyiksa lutut.";
-        } else if (ratio > 1.0 && ratio <= 1.3) {
-          ratioStatus.innerText = "Rasio medium. Cocok untuk tanjakan bervariasi (rolling hills) atau rute flat dengan tanjakan pendek.";
-        } else {
-          ratioStatus.innerText = "Rasio berat (gigi balap). Sempurna untuk kecepatan tinggi di jalan flat, tapi butuh power ekstra besar jika dipakai menanjak.";
+            if (chainring > 0 && sprocket > 0) {
+                const ratio = chainring / sprocket;
+                ratioOutput.innerText = ratio.toFixed(2);
+
+                if (ratio <= 1.0) {
+                    ratioStatus.innerText =
+                        "Rasio super ringan! Sangat ideal dan aman untuk melibas tanjakan terjal pegunungan tanpa menyiksa lutut.";
+                } else if (ratio > 1.0 && ratio <= 1.3) {
+                    ratioStatus.innerText =
+                        "Rasio medium. Cocok untuk tanjakan bervariasi (rolling hills) atau rute flat dengan tanjakan pendek.";
+                } else {
+                    ratioStatus.innerText =
+                        "Rasio berat (gigi balap). Sempurna untuk kecepatan tinggi di jalan flat, tapi butuh power ekstra besar jika dipakai menanjak.";
+                }
+            }
         }
-      }
     }
-  }
 
-  // Logika 2: Kalkulator Ukuran Sepeda
-  const heightInput = document.getElementById('height') as HTMLInputElement;
-  const sizeOutput = document.getElementById('size-output');
-  const sizeNote = document.getElementById('size-note');
+    // Logika 2: Kalkulator Ukuran Sepeda
+    const heightInput = document.getElementById("height") as HTMLInputElement;
+    const sizeOutput = document.getElementById("size-output");
+    const sizeNote = document.getElementById("size-note");
 
-  function calculateSize() {
-    if (heightInput && sizeOutput && sizeNote) {
-      const height = parseFloat(heightInput.value);
+    function calculateSize() {
+        if (heightInput && sizeOutput && sizeNote) {
+            const height = parseFloat(heightInput.value);
 
-      if (height < 160) {
-        sizeOutput.innerText = "XS (47-49)";
-        sizeNote.innerText = "Cocok untuk postur tubuh lincah, memberikan kendali handling kemudi sepeda yang sangat mantap.";
-      } else if (height >= 160 && height < 170) {
-        sizeOutput.innerText = "S (50-52)";
-        sizeNote.innerText = "Ukuran seimbang untuk fleksibilitas berkendara santai maupun agresif di jalan aspal.";
-      } else if (height >= 170 && height < 180) {
-        sizeOutput.innerText = "M (52-54)";
-        sizeNote.innerText = "Ukuran paling pas untuk kenyamanan optimal guna meminimalisir risiko cedera punggung saat gowes jarak jauh.";
-      } else if (height >= 180 && height < 188) {
-        sizeOutput.innerText = "L (54-56)";
-        sizeNote.innerText = "Disarankan untuk pengendara berpostur tinggi demi jangkauan tangan (*reach*) yang proporsional.";
-      } else {
-        sizeOutput.innerText = "XL (56-58+)";
-        sizeNote.innerText = "Ukuran bingkai maksimal, disarankan melakukan konsultasi profesional bike fitting lanjutan.";
-      }
+            if (height < 160) {
+                sizeOutput.innerText = "XS (47-49)";
+                sizeNote.innerText =
+                    "Cocok untuk postur tubuh lincah, memberikan kendali handling kemudi sepeda yang sangat mantap.";
+            } else if (height >= 160 && height < 170) {
+                sizeOutput.innerText = "S (50-52)";
+                sizeNote.innerText =
+                    "Ukuran seimbang untuk fleksibilitas berkendara santai maupun agresif di jalan aspal.";
+            } else if (height >= 170 && height < 180) {
+                sizeOutput.innerText = "M (52-54)";
+                sizeNote.innerText =
+                    "Ukuran paling pas untuk kenyamanan optimal guna meminimalisir risiko cedera punggung saat gowes jarak jauh.";
+            } else if (height >= 180 && height < 188) {
+                sizeOutput.innerText = "L (54-56)";
+                sizeNote.innerText =
+                    "Disarankan untuk pengendara berpostur tinggi demi jangkauan tangan (*reach*) yang proporsional.";
+            } else {
+                sizeOutput.innerText = "XL (56-58+)";
+                sizeNote.innerText =
+                    "Ukuran bingkai maksimal, disarankan melakukan konsultasi profesional bike fitting lanjutan.";
+            }
+        }
     }
-  }
 
-  // Pasang Event Listener agar kalkulator otomatis berjalan saat angka diketik
-  chainringInput?.addEventListener('input', calculateRatio);
-  sprocketInput?.addEventListener('input', calculateRatio);
-  heightInput?.addEventListener('input', calculateSize);
+    // Pasang Event Listener agar kalkulator otomatis berjalan saat angka diketik
+    chainringInput?.addEventListener("input", calculateRatio);
+    sprocketInput?.addEventListener("input", calculateRatio);
+    heightInput?.addEventListener("input", calculateSize);
+
+    // --- LOGIKA 3: KALKULATOR TEKANAN BAN ---
+    const weightBikeInput = document.getElementById(
+        "weight-bike",
+    ) as HTMLInputElement;
+    const bikeTypeSelect = document.getElementById(
+        "bike-type",
+    ) as HTMLSelectElement;
+    const tyreSystemSelect = document.getElementById(
+        "tyre-system",
+    ) as HTMLSelectElement;
+
+    const pressureFrontOutput = document.getElementById("pressure-front");
+    const pressureRearOutput = document.getElementById("pressure-rear");
+
+    function calculatePressure() {
+        if (
+            weightBikeInput &&
+            bikeTypeSelect &&
+            tyreSystemSelect &&
+            pressureFrontOutput &&
+            pressureRearOutput
+        ) {
+            const weight = parseFloat(weightBikeInput.value) || 0;
+            const type = bikeTypeSelect.value;
+            const system = tyreSystemSelect.value;
+
+            let basePressure = 0;
+
+            // Logika kalkulasi dasar berdasarkan jenis sepeda
+            if (type === "road") {
+                basePressure = 40 + weight * 0.45; // Estimasi rentang 70-100 PSI
+            } else if (type === "gravel") {
+                basePressure = 20 + weight * 0.25; // Estimasi rentang 35-55 PSI
+            } else if (type === "mtb") {
+                basePressure = 15 + weight * 0.12; // Estimasi rentang 20-30 PSI
+            }
+
+            // Potongan tekanan angin jika menggunakan sistem Tubeless (bisa lebih empuk)
+            if (system === "tubeless") {
+                basePressure -= 5;
+            }
+
+            // Distribusi beban: Tekanan ban belakang selalu dibuat sedikit lebih keras (+3 PSI)
+            const frontPressure = Math.round(basePressure);
+            const rearPressure = Math.round(basePressure + 3);
+
+            pressureFrontOutput.innerText = `${frontPressure} PSI`;
+            pressureRearOutput.innerText = `${rearPressure} PSI`;
+        }
+    }
+
+    // --- LOGIKA 4: KALKULATOR PANJANG RANTAI ---
+    const chainstayInput = document.getElementById(
+        "chainstay",
+    ) as HTMLInputElement;
+    const chainringMaxInput = document.getElementById(
+        "chainring-max",
+    ) as HTMLInputElement;
+    const sprocketMaxInput = document.getElementById(
+        "sprocket-max",
+    ) as HTMLInputElement;
+    const chainOutput = document.getElementById("chain-output");
+
+    function calculateChainLength() {
+        if (
+            chainstayInput &&
+            chainringMaxInput &&
+            sprocketMaxInput &&
+            chainOutput
+        ) {
+            const c = parseFloat(chainstayInput.value) || 0;
+            const f = parseFloat(chainringMaxInput.value) || 0;
+            const r = parseFloat(sprocketMaxInput.value) || 0;
+
+            if (c > 0 && f > 0 && r > 0) {
+                // Rumus Standar Rigid Equation
+                const rawLength = 2 * c + f / 4 + r / 4 + 1;
+
+                // Pembulatan ke angka genap terdekat ke atas (karena mata rantai harus genap)
+                const recommendedLinks = Math.ceil(rawLength / 2) * 2;
+
+                chainOutput.innerText = `${recommendedLinks} Links`;
+            } else {
+                chainOutput.innerText = "-";
+            }
+        }
+    }
+
+    // Pasang listener untuk kalkulasi otomatis saat mengetik angka
+    chainstayInput?.addEventListener("input", calculateChainLength);
+    chainringMaxInput?.addEventListener("input", calculateChainLength);
+    sprocketMaxInput?.addEventListener("input", calculateChainLength);
+
+    // --- LOGIKA 5: KALKULATOR TINGGI SADEL ---
+    const inseamInput = document.getElementById("inseam") as HTMLInputElement;
+    const saddleOutput = document.getElementById("saddle-output");
+
+    function calculateSaddleHeight() {
+        if (inseamInput && saddleOutput) {
+            const inseam = parseFloat(inseamInput.value) || 0;
+
+            if (inseam > 0) {
+                // Metode LeMond: Inseam * 0.883
+                const saddleHeight = inseam * 0.883;
+                saddleOutput.innerText = `${saddleHeight.toFixed(1)} cm`;
+            } else {
+                saddleOutput.innerText = "-";
+            }
+        }
+    }
+
+    // Pasang listener untuk kalkulasi otomatis saat mengetik angka inseam
+    inseamInput?.addEventListener("input", calculateSaddleHeight);
+
+    // --- LOGIKA 6: KALKULATOR HIDRASI & NUTRISI ---
+    const durationInput = document.getElementById(
+        "duration",
+    ) as HTMLInputElement;
+    const weatherSelect = document.getElementById(
+        "weather",
+    ) as HTMLSelectElement;
+
+    const waterOutput = document.getElementById("water-output");
+    const bidonNote = document.getElementById("bidon-note");
+    const carbOutput = document.getElementById("carb-output");
+    const fuelNote = document.getElementById("fuel-note");
+
+    function calculateHydrationAndFuel() {
+        if (
+            durationInput &&
+            weatherSelect &&
+            waterOutput &&
+            bidonNote &&
+            carbOutput &&
+            fuelNote
+        ) {
+            const duration = parseFloat(durationInput.value) || 0;
+            const weather = weatherSelect.value;
+
+            // 1. Hitung Cairan (ml)
+            // Cuaca adem butuh ~500ml/jam, cuaca panas/nanjak butuh ~800ml/jam
+            const mlPerHour = weather === "cool" ? 500 : 800;
+            const totalWater = duration * mlPerHour;
+
+            // Hitung takaran botol sepeda standar (600ml)
+            const totalBidons = Math.ceil(totalWater / 600);
+
+            // 2. Hitung Karbohidrat (gram)
+            // Santai butuh ~30g/jam, intens/nanjak butuh ~60g/jam
+            const carbPerHour = weather === "cool" ? 30 : 60;
+            const totalCarbs = duration * carbPerHour;
+
+            // Estimasi porsi pisang (1 pisang ukuran sedang mengandung ~25-30g karbo)
+            const totalBananas = Math.ceil(totalCarbs / 30);
+
+            // Tampilkan hasil ke UI
+            waterOutput.innerText = `${totalWater.toLocaleString("id-ID")} ml`;
+            bidonNote.innerText = `Disarankan membawa sekitar ${totalBidons} botol (bidon) ukuran 600ml.`;
+
+            carbOutput.innerText = `${totalCarbs} gram`;
+            fuelNote.innerText = `Bisa dicukupi dengan memakan sekitar ${totalBananas} buah pisang atau energy gel secara bertahap.`;
+        }
+    }
+
+    // Pasang event listener untuk update otomatis saat input berubah
+    durationInput?.addEventListener("input", calculateHydrationAndFuel);
+    weatherSelect?.addEventListener("change", calculateHydrationAndFuel);
 </script>
