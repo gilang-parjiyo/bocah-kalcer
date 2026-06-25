@@ -18,21 +18,78 @@ const { title } = Astro.props;
     <nav
       class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50"
     >
-      <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
-      >
-        <a
-          href="/"
-          class="font-bold text-xl tracking-wider text-lime-400 hover:opacity-80 transition"
-          >BOCAH KALCER</a
-        >
-        <div class="flex space-x-6 md:space-x-8 text-sm font-medium">
-          <a href="/agenda" class="hover:text-lime-400 transition">Agenda</a>
-          <a href="/rute" class="hover:text-lime-400 transition">Rute</a>
-          <a href="/galeri" class="hover:text-lime-400 transition">Galeri</a>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <a
+            href="/"
+            class="font-bold text-xl tracking-wider text-lime-400 hover:opacity-80 transition"
+          >
+            BOCAH KALCER
+          </a>
+
+          <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="/agenda" class="hover:text-lime-400 transition">Agenda</a>
+            <a href="/rute" class="hover:text-lime-400 transition">Rute</a>
+            <a href="/galeri" class="hover:text-lime-400 transition">Galeri</a>
+          </div>
+
+          <div class="flex items-center md:hidden">
+            <button
+              id="hamburger-btn"
+              type="button"
+              class="text-zinc-400 hover:text-lime-400 focus:outline-none p-2 rounded-md"
+              aria-label="Toggle Menu"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
+
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-zinc-800 bg-zinc-900 px-4 pt-2 pb-4 space-y-2 text-sm font-medium shadow-xl"
+      >
+        <a
+          href="/agenda"
+          class="block py-2.5 px-3 rounded-xl hover:bg-zinc-800 text-zinc-100 hover:text-lime-400 transition"
+          >Agenda</a
+        >
+        <a
+          href="/rute"
+          class="block py-2.5 px-3 rounded-xl hover:bg-zinc-800 text-zinc-100 hover:text-lime-400 transition"
+          >Rute</a
+        >
+        <a
+          href="/galeri"
+          class="block py-2.5 px-3 rounded-xl hover:bg-zinc-800 text-zinc-100 hover:text-lime-400 transition"
+          >Galeri</a
+        >
+      </div>
     </nav>
+
+    <script>
+      const hamburgerBtn = document.getElementById("hamburger-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (hamburgerBtn && mobileMenu) {
+        hamburgerBtn.addEventListener("click", () => {
+          // Toggle kelas 'hidden' untuk memunculkan/menyembunyikan menu dropdown
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+    </script>
 
     <!-- KONTEN HALAMAN AKAN MASUK DI SINI -->
     <slot />
