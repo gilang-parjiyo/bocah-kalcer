@@ -1,139 +1,179 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
+import MainLayout from "../layouts/mainLayout.astro";
 // Bagian Frontmatter (Kosongkan dulu tidak apa-apa)
 ---
 
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Bocah kalcer - Cycling Club</title>
-  </head>
-  
-  <body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
-    
-    <!-- NAVBAR -->
-    <nav class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div class="font-bold text-xl tracking-wider text-lime-400">BOCAH KALCER</div>
-        <div class="hidden md:flex space-x-8 text-sm font-medium">
-          <a href="/agenda" class="hover:text-lime-400 transition">Agenda</a>
-          <a href="/rute" class="hover:text-lime-400 transition">Rute</a>
-          <a href="/galeri" class="hover:text-lime-400 transition">Galeri</a>
-        </div>
-        <button class="border border-lime-400 text-lime-400 hover:bg-lime-400 hover:text-zinc-950 font-bold px-4 py-2 rounded-full text-xs tracking-wide transition">
-          GABUNG
-        </button>
-      </div>
-    </nav>
+<MainLayout title="Bocah kalcer - Cycling Club">
+	<html lang="id">
+		<!-- HERO SECTION -->
+		<header
+			class="relative bg-zinc-900 h-[80vh] flex items-center overflow-hidden"
+		>
+			<div class="absolute inset-0 z-0">
+				<!-- Pastikan Anda menaruh foto peloton di folder public/images/hero-peloton.jpg -->
+				<img
+					src="/images/hero-peloton.jpg"
+					alt="Peloton"
+					class="w-full h-full object-cover object-center opacity-60"
+				/>
+				<div
+					class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent"
+				>
+				</div>
+			</div>
 
-    <!-- HERO SECTION -->
-    <header class="relative bg-zinc-900 h-[80vh] flex items-center overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <!-- Pastikan Anda menaruh foto peloton di folder public/images/hero-peloton.jpg -->
-        <img 
-          src="/images/hero-peloton.jpg" 
-          alt="Peloton" 
-          class="w-full h-full object-cover object-center opacity-60"
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent"></div>
-      </div>
+			<div
+				class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full"
+			>
+				<div class="max-w-3xl">
+					<h1
+						class="text-4xl sm:text-6xl font-black tracking-tight text-lime-400 uppercase italic leading-none"
+					>
+						TAKLUKAN RUTE BARU,<br />TEMUKAN KEBEBASANMU
+					</h1>
+					<p
+						class="mt-4 text-lg sm:text-xl text-zinc-200 font-medium"
+					>
+						Satu Pedal, Seribu Saudara.
+					</p>
+					<div class="mt-8 flex gap-4">
+						<button
+							class="bg-lime-400 hover:bg-lime-500 text-zinc-950 font-black px-6 py-3 rounded-md text-sm uppercase tracking-wider transition"
+						>
+							Gabung Sekarang
+						</button>
+						<button
+							class="border border-lime-400 text-lime-400 hover:bg-lime-400/10 font-bold px-6 py-3 rounded-md text-sm uppercase tracking-wider transition"
+						>
+							Jelajahi Rute
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div class="max-w-3xl">
-          <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-lime-400 uppercase italic leading-none">
-            TAKLUKAN RUTE BARU,<br/>TEMUKAN KEBEBASANMU
-          </h1>
-          <p class="mt-4 text-lg sm:text-xl text-zinc-200 font-medium">
-            Satu Pedal, Seribu Saudara.
-          </p>
-          <div class="mt-8 flex gap-4">
-            <button class="bg-lime-400 hover:bg-lime-500 text-zinc-950 font-black px-6 py-3 rounded-md text-sm uppercase tracking-wider transition">
-              Gabung Sekarang
-            </button>
-            <button class="border border-lime-400 text-lime-400 hover:bg-lime-400/10 font-bold px-6 py-3 rounded-md text-sm uppercase tracking-wider transition">
-              Jelajahi Rute
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
+		<!-- AGENDA SECTION DENGAN TEKSTUR ASPAL (PASTE DI SINI) -->
+		<section
+			class="bg-zinc-950 bg-[url('/images/asphalt-texture.png')] bg-cover bg-blend-overlay py-20 border-t border-zinc-900"
+		>
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<h2
+					class="text-3xl sm:text-4xl font-black uppercase tracking-wider text-zinc-100 mb-10 italic"
+				>
+					Agenda Terdekat
+				</h2>
 
-    <!-- AGENDA SECTION DENGAN TEKSTUR ASPAL (PASTE DI SINI) -->
-    <section class="bg-zinc-950 bg-[url('/images/asphalt-texture.png')] bg-cover bg-blend-overlay py-20 border-t border-zinc-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-wider text-zinc-100 mb-10 italic">
-          Agenda Terdekat
-        </h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<!-- KARTU 1: Kopi Darat Ride -->
+					<div
+						class="bg-zinc-900/90 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm"
+					>
+						<div
+							class="p-4 flex items-center justify-between border-b border-zinc-800"
+						>
+							<div class="flex items-center gap-2">
+								<span class="text-lime-400 font-bold text-sm"
+									>1.</span
+								>
+								<h3 class="font-bold text-zinc-100 text-sm">
+									Kopi Darat Ride
+								</h3>
+							</div>
+							<span
+								class="border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider"
+							>
+								Santai
+							</span>
+						</div>
+						<div class="h-44 overflow-hidden">
+							<img
+								src="/images/event-kopdar.jpg"
+								alt="Kopi Darat"
+								class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+							/>
+						</div>
+						<div class="p-4 bg-zinc-900/50">
+							<h4 class="font-bold text-base text-zinc-100">
+								Kopi Darat Ride
+							</h4>
+							<p class="text-xs text-zinc-500 mt-1">28 June</p>
+						</div>
+					</div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <!-- KARTU 1: Kopi Darat Ride -->
-          <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm">
-            <div class="p-4 flex items-center justify-between border-b border-zinc-800">
-              <div class="flex items-center gap-2">
-                <span class="text-lime-400 font-bold text-sm">1.</span>
-                <h3 class="font-bold text-zinc-100 text-sm">Kopi Darat Ride</h3>
-              </div>
-              <span class="border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
-                Santai
-              </span>
-            </div>
-            <div class="h-44 overflow-hidden">
-              <img src="/images/event-kopdar.jpg" alt="Kopi Darat" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
-            </div>
-            <div class="p-4 bg-zinc-900/50">
-              <h4 class="font-bold text-base text-zinc-100">Kopi Darat Ride</h4>
-              <p class="text-xs text-zinc-500 mt-1">28 June</p>
-            </div>
-          </div>
+					<!-- KARTU 2: Satur-Day Out -->
+					<div
+						class="bg-zinc-900/90 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm"
+					>
+						<div
+							class="p-4 flex items-center justify-between border-b border-zinc-800"
+						>
+							<div class="flex items-center gap-2">
+								<span class="text-amber-400 font-bold text-sm"
+									>2.</span
+								>
+								<h3 class="font-bold text-zinc-100 text-sm">
+									Satur-Day Out
+								</h3>
+							</div>
+							<span
+								class="border border-amber-500/40 bg-amber-500/10 text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider"
+							>
+								Medium
+							</span>
+						</div>
+						<div class="h-44 overflow-hidden">
+							<img
+								src="/images/event-saturday.jpg"
+								alt="Satur-Day Out"
+								class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+							/>
+						</div>
+						<div class="p-4 bg-zinc-900/50">
+							<h4 class="font-bold text-base text-zinc-100">
+								Satur-Day Out
+							</h4>
+							<p class="text-xs text-zinc-500 mt-1">29 June</p>
+						</div>
+					</div>
 
-          <!-- KARTU 2: Satur-Day Out -->
-          <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm">
-            <div class="p-4 flex items-center justify-between border-b border-zinc-800">
-              <div class="flex items-center gap-2">
-                <span class="text-amber-400 font-bold text-sm">2.</span>
-                <h3 class="font-bold text-zinc-100 text-sm">Satur-Day Out</h3>
-              </div>
-              <span class="border border-amber-500/40 bg-amber-500/10 text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
-                Medium
-              </span>
-            </div>
-            <div class="h-44 overflow-hidden">
-              <img src="/images/event-saturday.jpg" alt="Satur-Day Out" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
-            </div>
-            <div class="p-4 bg-zinc-900/50">
-              <h4 class="font-bold text-base text-zinc-100">Satur-Day Out</h4>
-              <p class="text-xs text-zinc-500 mt-1">29 June</p>
-            </div>
-          </div>
-
-          <!-- KARTU 3: King of Pacet -->
-          <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm">
-            <div class="p-4 flex items-center justify-between border-b border-zinc-800">
-              <div class="flex items-center gap-2">
-                <span class="text-orange-500 font-bold text-sm">3.</span>
-                <h3 class="font-bold text-zinc-100 text-sm">King of Pacet</h3>
-              </div>
-              <span class="border border-orange-500/40 bg-orange-500/10 text-orange-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
-                Hard
-              </span>
-            </div>
-            <div class="h-44 overflow-hidden">
-              <img src="/images/event-pacet.jpg" alt="King of Pacet" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
-            </div>
-            <div class="p-4 bg-zinc-900/50">
-              <h4 class="font-bold text-base text-zinc-100">King of Pacet</h4>
-              <p class="text-xs text-zinc-500 mt-1">July 5</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </body>
-</html>
+					<!-- KARTU 3: King of Pacet -->
+					<div
+						class="bg-zinc-900/90 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm"
+					>
+						<div
+							class="p-4 flex items-center justify-between border-b border-zinc-800"
+						>
+							<div class="flex items-center gap-2">
+								<span class="text-orange-500 font-bold text-sm"
+									>3.</span
+								>
+								<h3 class="font-bold text-zinc-100 text-sm">
+									King of Pacet
+								</h3>
+							</div>
+							<span
+								class="border border-orange-500/40 bg-orange-500/10 text-orange-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider"
+							>
+								Hard
+							</span>
+						</div>
+						<div class="h-44 overflow-hidden">
+							<img
+								src="/images/event-pacet.jpg"
+								alt="King of Pacet"
+								class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+							/>
+						</div>
+						<div class="p-4 bg-zinc-900/50">
+							<h4 class="font-bold text-base text-zinc-100">
+								King of Pacet
+							</h4>
+							<p class="text-xs text-zinc-500 mt-1">July 5</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</html>
+</MainLayout>

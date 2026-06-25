@@ -1,0 +1,47 @@
+---
+import "../styles/global.css";
+
+// Menerima properti Title dinamis dari setiap halaman
+const { title } = Astro.props;
+---
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title} - Cycling Club</title>
+  </head>
+
+  <body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
+    <!-- NAVBAR (Cukup ditulis sekali di sini) -->
+    <nav
+      class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <a
+          href="/"
+          class="font-bold text-xl tracking-wider text-lime-400 hover:opacity-80 transition"
+          >BOCAH KALCER - CYCLING CLUB</a
+        >
+        <div class="flex space-x-6 md:space-x-8 text-sm font-medium">
+          <a href="/agenda" class="hover:text-lime-400 transition">Agenda</a>
+          <a href="/rute" class="hover:text-lime-400 transition">Rute</a>
+          <a href="/galeri" class="hover:text-lime-400 transition">Galeri</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- KONTEN HALAMAN AKAN MASUK DI SINI -->
+    <slot />
+
+    <!-- FOOTER (Cukup ditulis sekali di sini) -->
+    <footer
+      class="border-t border-zinc-900 bg-zinc-950 py-8 text-center text-xs text-zinc-600"
+    >
+      <p>© 2026 BOCAH KALCER CYCLING CLUB. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
