@@ -1,0 +1,153 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const daftarFoto = [
+  { id: 1, url: '/images/galeri/foto1.webp', alt: 'Gowes Pagi Bocah Kalcer', kategori: 'event' },
+  { id: 2, url: '/images/galeri/foto2.webp', alt: 'Tanjakan Pacet Cruel', kategori: 'rute' },
+  { id: 3, url: '/images/galeri/foto3.webp', alt: 'Rest Area Ceten', kategori: 'rute' },
+  { id: 4, url: '/images/galeri/foto4.webp', alt: 'Morning Sprint Asik', kategori: 'event' },
+  { id: 5, url: '/images/galeri/foto5.webp', alt: 'Kopi Macet Kalcer', kategori: 'sepeda' },
+  { id: 6, url: '/images/galeri/foto6.webp', alt: 'Peloton Bocah Kalcer', kategori: 'event' },
+  { id: 7, url: '/images/galeri/foto7.webp', alt: 'Jersey Baru Mantap', kategori: 'sepeda' },
+  { id: 8, url: '/images/galeri/foto8.webp', alt: 'Rolling Hills Indah', kategori: 'rute' },
+  { id: 9, url: '/images/galeri/foto9.webp', alt: 'Mekanik Bongkar Sendiri', kategori: 'sepeda' },
+  { id: 10, url: '/images/galeri/foto10.webp', alt: 'Gowes Tipis Senja', kategori: 'rute' },
+  { id: 11, url: '/images/galeri/foto11.webp', alt: 'Ban Bocor Solidaritas', kategori: 'event' },
+  { id: 12, url: '/images/galeri/foto12.webp', alt: 'Sarapan Bubur Kelar Gowes', kategori: 'event' },
+];
+---
+
+<MainLayout title="Galeri Foto">
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    
+    {/* HEADER HALAMAN */}
+    <div class="text-center mb-12">
+      <span class="text-lime-400 text-xs font-bold tracking-widest uppercase block mb-2">Our Moments</span>
+      <h1 class="text-3xl md:text-5xl font-black uppercase italic tracking-tight">Dokumentasi Kegiatan</h1>
+    </div>
+
+    {/* TOMBOL FILTER KATEGORI */}
+    <div class="flex flex-wrap items-center justify-center gap-3 mb-10">
+      <button
+        data-filter="all"
+        class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-lime-400 text-zinc-950 transition border border-transparent"
+      >
+        Semua Foto
+      </button>
+      <button
+        data-filter="rute"
+        class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850 transition border border-zinc-800"
+      >
+        🗺️ Rute
+      </button>
+      <button
+        data-filter="event"
+        class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850 transition border border-zinc-800"
+      >
+        🏁 Event
+      </button>
+      <button
+        data-filter="sepeda"
+        class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850 transition border border-zinc-800"
+      >
+        🚲 Sepeda
+      </button>
+    </div>
+
+    {/* GRID FOTO */}
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="gallery-grid">
+      {daftarFoto.map((foto) => (
+        <div 
+          data-category={foto.kategori} 
+          class="gallery-item bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-xl group transition-all duration-300 hidden"
+        >
+          <div class="aspect-video w-full bg-zinc-950 overflow-hidden relative">
+            <img src={foto.url} alt={foto.alt} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          </div>
+          <div class="p-4">
+            <p class="text-xs font-semibold text-zinc-350 tracking-wide">{foto.alt}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* TOMBOL LOAD MORE */}
+    <div class="flex justify-center mt-12" id="load-more-container">
+      <button 
+        id="load-more-btn"
+        class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-zinc-300 transition"
+      >
+        Muat Lebih Banyak...
+      </button>
+    </div>
+  </main>
+</MainLayout>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.gallery-item') as NodeListOf<HTMLElement>;
+  const loadMoreBtn = document.getElementById('load-more-btn');
+  const loadMoreContainer = document.getElementById('load-more-container');
+
+  let currentLimit = 9;
+  let currentFilter = 'all';
+
+  function updateGalleryDisplay() {
+    let visibleCount = 0;
+    let totalMatchCount = 0;
+
+    items.forEach(item => {
+      const itemCategory = item.getAttribute('data-category');
+      const isMatch = currentFilter === 'all' || currentFilter === itemCategory;
+
+      if (isMatch) {
+        totalMatchCount++;
+        if (visibleCount < currentLimit) {
+          item.classList.remove('hidden');
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'scale(1)';
+          }, 10);
+          visibleCount++;
+        } else {
+          item.classList.add('hidden');
+        }
+      } else {
+        item.classList.add('hidden');
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.95)';
+      }
+    });
+
+    if (loadMoreContainer) {
+      if (visibleCount >= totalMatchCount) {
+        loadMoreContainer.style.display = 'none';
+      } else {
+        loadMoreContainer.style.display = 'flex';
+      }
+    }
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      currentFilter = button.getAttribute('data-filter') || 'all';
+      currentLimit = 9; 
+
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-lime-400', 'text-zinc-950');
+        btn.classList.add('bg-zinc-900', 'text-zinc-400', 'border-zinc-800');
+      });
+      button.classList.remove('bg-zinc-900', 'text-zinc-400', 'border-zinc-800');
+      button.classList.add('bg-lime-400', 'text-zinc-950');
+
+      updateGalleryDisplay();
+    });
+  });
+
+  loadMoreBtn?.addEventListener('click', () => {
+    currentLimit += 9; 
+    updateGalleryDisplay();
+  });
+
+  updateGalleryDisplay();
+</script>
